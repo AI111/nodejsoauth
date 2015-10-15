@@ -17,6 +17,10 @@ module.exports = {
 
     // MongoDB connection options
     mongo: {
-        uri:    process.env.OPENSHIFT_MONGODB_DB_HOST || 'mongodb://localhost/nodejs-lab2'
+        uri:    (process.env.OPENSHIFT_MONGODB_DB_HOST || 'mongodb://localhost')+"/nodejsoauth",
+        options: {
+        user: process.env.OPENSHIFT_MONGODB_DB_USERNAME||undefined,
+        pass: process.env.OPENSHIFT_MONGODB_DB_PASSWORD||undefined
+    }
     }
 };
