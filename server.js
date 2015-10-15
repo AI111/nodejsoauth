@@ -12,7 +12,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect(config.mongo.uri);
+mongoose.connect('mongodb://'+config.mongo.connection_string);
 mongoose.connection.on('error', function(err) {
         console.error('MongoDB connection error: ' + err);
         process.exit(-1);
