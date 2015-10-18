@@ -11,7 +11,7 @@ var User       = require('../models/user');
 
 // load the auth variables
 var config = require('../config');
-
+console.log(config.google.callbackURL);
 module.exports = function(passport) {
 
     // used to serialize the user for the session

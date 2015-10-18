@@ -3,6 +3,12 @@
  */
 'use strict';
 
+var domain='';
+if(process.env.OPENSHIFT_APP_DNS){
+    domain='https://'+process.env.OPENSHIFT_APP_DNS;
+}else{
+    domain='http://localhost:8080'
+}
 
 module.exports = {
 
@@ -16,6 +22,6 @@ module.exports = {
     google: {
         clientID:     process.env.GOOGLE_ID || '706386627126-0uv3el1d2tn35hn5hfmakedvacog10e6.apps.googleusercontent.com',
         clientSecret: process.env.GOOGLE_SECRET || 'Qoa-LozhWnOpQmTPXwFEEc2f',
-        callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
+        callbackURL:  domain+ '/auth/google/callback'
     }
 };
