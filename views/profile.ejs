@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <style>
+        body         { padding-top:20px; word-wrap:break-word; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="text-center">
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+
+    <!-- GOOGLE INFORMATION -->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="well">
+                <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
+
+                <% if (user.google.token) { %>
+                <p>
+                    <strong>id</strong>: <%= user.google.id %><br>
+                    <strong>token</strong>: <%= user.google.token %><br>
+                    <strong>email</strong>: <%= user.google.email %><br>
+                    <strong>name</strong>: <%= user.google.name %>
+                </p>
+                <% } %>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th>No</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Дата рождения</th>
+            </tr>
+            <% list.forEach(function(item) { %>
+            <tr>
+                <td><%= item._id %></td>
+                <td><%= item.name.firstName %></td>
+                <td><%= item.name.lastName %></td>
+                <td>
+                    <%= item.birthDay.day %>.
+                    <%= item.birthDay.month %>.
+                    <%= item.birthDay.year %>
+                </td>
+            </tr>
+            <% }); %>
+        </table>
+    </div>
+
+
+</div>
+</body>
+</html>
