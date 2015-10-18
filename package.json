@@ -31,7 +31,17 @@
     "ejs" : "latest",
     "cookie-parser": "latest",
     "lodash":"latest",
-    "body-parser":"latest"
+    "body-parser":"latest",
+
+    "morgan": "latest",
+    "passport-google-oauth":"latest",
+    "passport" : "latest",
+    "passport-local" : "latest",
+    "passport-facebook" : "latest",
+    "passport-twitter" : "latest",
+    "bcrypt-nodejs" : "latest",
+    "express-session":"latest",
+    "connect-flash":"latest"
   },
   "devDependencies": {},
   "bundleDependencies": [],

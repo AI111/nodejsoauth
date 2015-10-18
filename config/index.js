@@ -6,19 +6,16 @@
 
 module.exports = {
 
-    ip:       process.env.OPENSHIFT_NODEJS_IP ||
-    process.env.IP ||
-    undefined,
+    ip:       process.env.OPENSHIFT_NODEJS_IP || process.env.IP || undefined,
 
-    port:     process.env.OPENSHIFT_NODEJS_PORT ||
-    process.env.PORT ||
-    8080,
+    port:     process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080,
 
-
-
-    // MongoDB connection options
     mongo: {
-        connection_string:process.env.OPENSHIFT_MONGODB_DB_URL||'127.0.0.1:27017/nodejsoauth'
-
+        connection_string:'mongodb://'+(process.env.OPENSHIFT_MONGODB_DB_URL||'127.0.0.1:27017/nodejsoauth')
+    },
+    google: {
+        clientID:     process.env.GOOGLE_ID || '706386627126-0uv3el1d2tn35hn5hfmakedvacog10e6.apps.googleusercontent.com',
+        clientSecret: process.env.GOOGLE_SECRET || 'Qoa-LozhWnOpQmTPXwFEEc2f',
+        callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
     }
 };
