@@ -1,0 +1,30 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <md-content class="md-padding">
+        <form name="userForm">
+            <div layout-padding>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>First Name</label>
+                        <input ng-model="person.name.firstName">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Last Name</label>
+                        <input ng-model="person.name.middleName">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Last Name</label>
+                        <input ng-model="person.name.lastName">
+                    </md-input-container>
+                </div>
+                <md-datepicker ng-model="person.birtday" md-placeholder="Enter date"></md-datepicker>
+            </div>
+
+        </form>
+    </md-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="answer('not useful')"> Cancel </md-button>
+        <md-button ng-click="answer('useful')" class="md-primary"> Save </md-button>
+    </div>
+</md-dialog>
+

@@ -26,7 +26,9 @@
 
   "dependencies": {
     "express" : "latest",
+    "serve-favicon":"latest",
     "mongoose" : "latest",
+    "connect-mongo":"latest",
     "body-parser" : "latest",
     "ejs" : "latest",
     "cookie-parser": "latest",
@@ -34,14 +36,18 @@
     "body-parser":"latest",
 
     "morgan": "latest",
-    "passport-google-oauth":"latest",
-    "passport" : "latest",
-    "passport-local" : "latest",
-    "passport-facebook" : "latest",
-    "passport-twitter" : "latest",
+    "jsonwebtoken": "latest",
+    "express-jwt": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "passport-facebook": "latest",
+    "passport-twitter": "latest",
+    "passport-google-oauth": "latest",
+    "composable-middleware": "latest",
     "bcrypt-nodejs" : "latest",
     "express-session":"latest",
-    "connect-flash":"latest"
+    "connect-flash":"latest",
+    "method-override":"latest"
   },
   "devDependencies": {},
   "bundleDependencies": [],

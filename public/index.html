@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="components/login-user/login.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+    <style>
+        .dark-primary-color    { background: #1976D2; }
+        .default-primary-color { background: #2196F3; }
+        .light-primary-color   { background: #BBDEFB; }
+        .text-primary-color    { color: #FFFFFF; }
+        .accent-color          { background: #FF5722; }
+        .primary-text-color    { color: #212121; }
+        .secondary-text-color  { color: #727272; }
+        .divider-color         { border-color: #B6B6B6; }
+
+        .md-toolbar-tools h1 {
+            font-size: inherit;
+            font-weight: inherit;
+            margin: inherit;
+        }
+
+        .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+            color: white;
+        }
+        .active{
+            background-color:#BBDEFB ;
+        }
+        /*a:-webkit-any-link:active {*/
+        /*color: -webkit-activelink;*/
+        /*}*/
+        /*a:-webkit-any-link {*/
+        /*color: -webkit-link;*/
+        /*text-decoration: underline;*/
+        /*cursor: auto;*/
+        /*}*/
+        /*:focus {*/
+        /*outline: -webkit-focus-ring-color auto 5px;*/
+        /*}*/
+    </style>
+</head>
+<body ng-app="app" layout="row" ng-controller="AppController as app" ng-cloak >
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <div ng-controller="LeftBarController" class="layout-column">
+        <md-toolbar class="md-tall md-hue-2">
+            <span flex></span>
+            <div layout="column" ng-show="isLoggedIn()" class="md-toolbar-tools-bottom">
+                <span></span>
+                <h4  class="navbar-text">Name {{ getCurrentUser().name }}</h4>
+                <h5  class="navbar-text">email: {{ getCurrentUser().email}}</h5>
+            </div>
+        </md-toolbar>
+
+        <md-list>
+            <md-list-item ng-show="!isLoggedIn()">
+                <a class="flex"  href="/login">
+                    <md-item-content  layout="row" layout-align="start center">
+                        <div class="inset">Login</div>
+                    </md-item-content>
+                </a>
+            </md-list-item>
+
+            <md-list-item ng-show="isLoggedIn()">
+                <a class="flex"  href="" ng-click="logout()">
+                    <md-item-content  layout="row" layout-align="start center" class="flex">
+                        <div class="inset flex">Logout</div>
+                    </md-item-content>
+                </a>
+            </md-list-item>
+
+            <md-list-item ng-show="!isLoggedIn()">
+                <a class="flex"  href="/signup">
+                    <md-item-content  layout="row" layout-align="start center" class="flex">
+                        <div class="inset">Sign up</div>
+                    </md-item-content>
+                </a>
+            </md-list-item>
+
+
+            <md-divider></md-divider>
+            <md-subheader class="md-no-sticky">Menu</md-subheader>
+
+            <md-list-item md-ink-ripple ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" >
+                <a ng-href="{{item.link}}" class="flex">
+                    <md-item-content  layout="row" layout-align="start center" >
+                        <div class="inset">
+                            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                        </div>
+                        <div class="inset">{{item.title}}
+                        </div>
+                    </md-item-content>
+                </a>
+            </md-list-item>
+        </md-list>
+    </div>
+</md-sidenav>
+
+
+<div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+        <md-button class="menu" hide-gt-md aria-label="Show Menu" >
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+        <h1>Angular Material</h1>
+    </md-toolbar>
+
+    <md-content flex id="content">
+        <div ng-viewport></div>
+    </md-content>
+
+</div>
+
+
+<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-new-router/dist/router.es5.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+
+<script type="text/javascript" src="./app/app.js"></script>
+<script type="text/javascript" src="./components/main/main.js"></script>
+<script type="text/javascript" src="./components/people-list/people-list.js"></script>
+<script type="text/javascript" src="./components/person-detailed/person-detailed.js"></script>
+<script type="text/javascript" src="./components/login-user/login-user.js"></script>
+<script type="text/javascript" src="./components/signup-user/signup-user.js"></script>
+<script type="text/javascript" src="./components/auth/auth-service.js"></script>
+
+
+</body>
+</html>
