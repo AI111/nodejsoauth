@@ -61,15 +61,21 @@
 
         <md-list>
             <md-list-item ng-show="!isLoggedIn()">
-                <a class="flex"  href="/login">
+                <a class="flex"  href="/login" layout="row" layout-align="start center">
+                    <div class="inset">
+                        <ng-md-icon icon="login"></ng-md-icon>
+                    </div>
                     <md-item-content  layout="row" layout-align="start center">
                         <div class="inset">Login</div>
                     </md-item-content>
                 </a>
             </md-list-item>
 
-            <md-list-item ng-show="isLoggedIn()">
-                <a class="flex"  href="" ng-click="logout()">
+            <md-list-item ng-show="isLoggedIn()" >
+                <a class="flex"  href="" ng-click="logout()" layout="row" layout-align="start center">
+                    <div class="inset">
+                        <ng-md-icon icon="logout"></ng-md-icon>
+                    </div>
                     <md-item-content  layout="row" layout-align="start center" class="flex">
                         <div class="inset flex">Logout</div>
                     </md-item-content>
@@ -77,7 +83,10 @@
             </md-list-item>
 
             <md-list-item ng-show="!isLoggedIn()">
-                <a class="flex"  href="/signup">
+                <a class="flex"  href="/signup" layout="row" layout-align="start center">
+                    <div class="inset">
+                        <ng-md-icon icon="assignment_ind"></ng-md-icon>
+                    </div>
                     <md-item-content  layout="row" layout-align="start center" class="flex">
                         <div class="inset">Sign up</div>
                     </md-item-content>

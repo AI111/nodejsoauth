@@ -7,14 +7,11 @@
     <md-list>
 
         <md-list-item class="md-2-line" ng-repeat="model in peopleList.list track by model._id" >
-            <div class="md-list-item-text" ng-click="peopleList.go(model._id)" >
-                <h3>{{model.name.firstName}} {{model.name.lastName}}</h3>
-                <p>{{model.birthDay.day+'-'+model.birthDay.month+'-'+model.birthDay.year}}</p>
-            </div>
-            <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                <md-button class="md-icon-button" aria-label="Settings">
-                    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-button>
+            <div layout="row">
+                <div class="md-list-item-text" ng-click="peopleList.go(model._id)" >
+                    <h3>{{model.name.firstName}} {{model.name.lastName}}</h3>
+                    <p>{{model.birthDay.day+'-'+model.birthDay.month+'-'+model.birthDay.year}}</p>
+                </div>
             </div>
             <md-divider  ng-if="!$last"></md-divider>
         </md-list-item>
