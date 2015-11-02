@@ -6,8 +6,8 @@
 <md-content>
     <md-list>
 
-        <md-list-item class="md-2-line" ng-repeat="model in peopleList.list track by model._id" >
-                <div class="md-list-item-text" ng-click="peopleList.go(model._id)" >
+        <md-list-item class="md-2-line" ng-repeat="model in peopleList.list track by model._id"  ng-click="peopleList.go(model._id)">
+                <div class="md-list-item-text"  >
                     <h3>{{model.name.firstName}} {{model.name.lastName}}</h3>
                     <p>{{model.birthDay.day+'-'+model.birthDay.month+'-'+model.birthDay.year}}</p>
                 </div>
