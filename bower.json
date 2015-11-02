@@ -1,0 +1,32 @@
+{
+  "name": "Sasha",
+  "version": "0.0.0",
+  "authors": [
+    "sasha <sashaandreev7@gmail.com>"
+  ],
+  "description": "Laba5 angular",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+
+  "dependencies": {
+    "angular": "latest",
+    "angular-material": "latest",
+    "angular-material-icons": "latest",
+    "angular-new-router": "latest",
+    "angular-resource": "latest",
+    "angular-cookies": "latest",
+    "angular-sanitize": "latest",
+    "angular-bootstrap": "latest",
+    "json3": "~3.3.1",
+    "es5-shim": "~3.0.1",
+    "bootstrap": "~3.1.1",
+    "lodash": "~2.4.1"
+
+  }
+}
