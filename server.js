@@ -22,7 +22,7 @@ mongoose.connection.on('error', function(err) {
     }
 );
 app.use(express.static(__dirname + '/public'));
-app.use(favicon(__dirname + '/public/img/favicon.ico'));
+//app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
