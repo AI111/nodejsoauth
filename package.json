@@ -34,6 +34,7 @@
     "cookie-parser": "latest",
     "lodash":"latest",
     "body-parser":"latest",
+    "lodash":"latest",
 
     "morgan": "latest",
     "jsonwebtoken": "latest",
