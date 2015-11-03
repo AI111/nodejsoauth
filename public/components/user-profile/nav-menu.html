@@ -1,4 +1,6 @@
-<div ng-controller="LeftBarController">
+<md-divider></md-divider>
+<md-subheader class="md-no-sticky">Menu</md-subheader>
+<md-list ng-controller="LeftBarController">
     <md-list-item  md-ink-ripple ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" >
         <a ng-href="{{item.link}}" class="flex">
             <md-item-content  layout="row" layout-align="start center" >
@@ -10,4 +12,4 @@
             </md-item-content>
         </a>
     </md-list-item>
-</div>
+</md-list>

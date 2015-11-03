@@ -8,9 +8,8 @@
 
         </div>
     </md-toolbar>
-
     <md-list>
-        <md-list-item ng-show="!isLoggedIn()">
+        <md-list-item md-ink-ripple ng-show="!isLoggedIn()">
             <a class="flex"  href="/login" layout="row" layout-align="start center">
                 <div class="inset">
                     <ng-md-icon icon="login"></ng-md-icon>
@@ -21,7 +20,7 @@
             </a>
         </md-list-item>
 
-        <md-list-item ng-show="isLoggedIn()" >
+        <md-list-item md-ink-ripple ng-show="isLoggedIn()" >
             <a class="flex"  href="" ng-click="logout()" layout="row" layout-align="start center">
                 <div class="inset">
                     <ng-md-icon icon="logout"></ng-md-icon>
@@ -32,7 +31,7 @@
             </a>
         </md-list-item>
 
-        <md-list-item ng-show="!isLoggedIn()">
+        <md-list-item md-ink-ripple ng-show="!isLoggedIn()">
             <a class="flex"  href="/signup" layout="row" layout-align="start center">
                 <div class="inset">
                     <ng-md-icon icon="assignment_ind"></ng-md-icon>
@@ -42,4 +41,5 @@
                 </md-item-content>
             </a>
         </md-list-item>
+    </md-list>
 </div>
