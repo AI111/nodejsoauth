@@ -57,7 +57,7 @@ app.listen(config.port,config.ip, function(err) {
 
 app.use('/api/people',myApi);
 app.use('/api/users', require('./server/routes/user'));
-//require('./server/models/test.data')
+require('./server/models/test.data')
 //require('./routes/index')(app,passport);
 //require('./routes/people')(app);
 app.use('/auth', require('./server/auth'));
