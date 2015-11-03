@@ -26,13 +26,13 @@ module.exports = {
         callbackURL:  domain+ '/auth/google/callback'
     },
     facebook: {
-        clientID:     process.env.FACEBOOK_ID || 'id',
-        clientSecret: process.env.FACEBOOK_SECRET || 'secret',
+        clientID:     process.env.FACEBOOK_ID || '1640408799550875',
+        clientSecret: process.env.FACEBOOK_SECRET || '18709684f89fa17e597e9e9324d45ab1',
         callbackURL:  (process.env.DOMAIN || '') + '/auth/facebook/callback'
     },
     twitter: {
-        clientID:     process.env.TWITTER_ID || 'id',
-        clientSecret: process.env.TWITTER_SECRET || 'secret',
+        clientID:     process.env.TWITTER_ID || 'rkgKRegJ9zaapxMo2QWib8yhT',
+        clientSecret: process.env.TWITTER_SECRET || '9McrlEMK1O7yYsWt9sSk8zqszg6gD1YziD9rKencygTiY2358M',
         callbackURL:  (process.env.DOMAIN || '') + '/auth/twitter/callback'
     },
     secrets: {

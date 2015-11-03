@@ -9,7 +9,7 @@
         <md-list-item ng-repeat="model in peopleList.list track by model._id"  ng-click="peopleList.go(model._id)">
 
                     <p>{{model.name.firstName}} {{model.name.lastName}}</p>
-            <md-icon md-svg-icon="img/icons/menu.svg" class="md-secondary" aria-label="Open Chat"  ng-click="peopleList.showAdd($event)"></md-icon>
+            <md-icon md-svg-icon="img/icons/ic_delete_24px.svg" class="md-secondary" aria-label="Open Chat"  ng-click="peopleList.showAdd($event)"></md-icon>
 
             <md-divider  ng-if="!$last"></md-divider>
         </md-list-item>

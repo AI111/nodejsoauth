@@ -48,7 +48,7 @@
 </head>
 <body ng-app="app" layout="row" ng-controller="AppController as app" ng-cloak >
 
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
     <div ng-controller="LeftBarController" class="layout-column">
         <md-toolbar class="md-tall md-hue-2">
             <span flex></span>
@@ -117,7 +117,7 @@
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
 
-            <md-icon  class="menu" ng-click="toggleNavBar()" md-svg-icon="img/icons/ic_menu_36px.svg"></md-icon>
+            <md-icon hide-gt-sm  class="menu" ng-click="toggleNavBar()" md-svg-icon="img/icons/ic_menu_24px.svg"></md-icon>
 
         <h1>Angular Material</h1>
     </md-toolbar>
