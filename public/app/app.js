@@ -51,7 +51,9 @@ appModule.controller('LeftBarController', function ($scope, $mdSidenav, $log,$lo
     $scope.isActive = function(route) {
         return route === $location.path();
     };
-
+    $scope.toggleNavBar = function(){
+        $mdSidenav('left').toggle();
+    }
     $scope.menu=[
         {
             link : '/',

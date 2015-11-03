@@ -1,5 +1,5 @@
 // модуль для вывода списка людей
-var peopleModule = angular.module('app.peopleList', []);
+var peopleModule = angular.module('app.peopleList', ['ngMaterial']);
 
 // фабрика (сервис) для получения информации с базы данных через API
 peopleModule.factory('peopleService', ['$http', function($http) {
