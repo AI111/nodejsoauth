@@ -17,18 +17,20 @@ exports.setup = function (User, config) {
         }
         if (!user) {
           console.log(profile);
-          user = new User({
-            name: profile.displayName,
-            email: profile.emails[0].value,
-            role: 'user',
-            username: profile.username,
-            provider: 'facebook',
-            facebook: profile._json
-          });
-          user.save(function(err) {
-            if (err) return done(err);
-            done(err, user);
-          });
+          //user = new User({
+          //  name: profile.displayName,
+          //  email: profile.emails[0].value,
+          //  role: 'user',
+          //  username: profile.username,
+          //  provider: 'facebook',
+          //  facebook: profile._json
+          //});
+          //user.save(function(err) {
+          //  if (err) return done(err);
+          //  done(err, user);
+          //});
+          done(err, new User({}));
+
         } else {
           return done(err, user);
         }

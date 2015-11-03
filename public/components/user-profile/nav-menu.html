@@ -1,0 +1,13 @@
+<div ng-controller="LeftBarController">
+    <md-list-item  md-ink-ripple ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" >
+        <a ng-href="{{item.link}}" class="flex">
+            <md-item-content  layout="row" layout-align="start center" >
+                <div class="inset">
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                </div>
+                <div class="inset">{{item.title}}
+                </div>
+            </md-item-content>
+        </a>
+    </md-list-item>
+</div>
