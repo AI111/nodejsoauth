@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="components/login-user/login.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
@@ -52,65 +52,11 @@
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
     <div  class="layout-column">
         <user-profile></user-profile>
-        <!--<md-toolbar class="md-tall md-hue-2">-->
-            <!--<span flex></span>-->
-            <!--<div layout="column" ng-show="isLoggedIn()" class="md-toolbar-tools-bottom">-->
-                <!--<span></span>-->
-                <!--<h4  class="navbar-text">Name {{ getCurrentUser().name }}</h4>-->
-                <!--<h5  class="navbar-text">email: {{ getCurrentUser().email}}</h5>-->
-                <!--<user-profile></user-profile>-->
-            <!--</div>-->
-        <!--</md-toolbar>-->
-
-        <!--<md-list>-->
-            <!--<md-list-item ng-show="!isLoggedIn()">-->
-                <!--<a class="flex"  href="/login" layout="row" layout-align="start center">-->
-                    <!--<div class="inset">-->
-                        <!--<ng-md-icon icon="login"></ng-md-icon>-->
-                    <!--</div>-->
-                    <!--<md-item-content  layout="row" layout-align="start center">-->
-                        <!--<div class="inset">Login</div>-->
-                    <!--</md-item-content>-->
-                <!--</a>-->
-            <!--</md-list-item>-->
-
-            <!--<md-list-item ng-show="isLoggedIn()" >-->
-                <!--<a class="flex"  href="" ng-click="logout()" layout="row" layout-align="start center">-->
-                    <!--<div class="inset">-->
-                        <!--<ng-md-icon icon="logout"></ng-md-icon>-->
-                    <!--</div>-->
-                    <!--<md-item-content  layout="row" layout-align="start center" class="flex">-->
-                        <!--<div class="inset flex">Logout</div>-->
-                    <!--</md-item-content>-->
-                <!--</a>-->
-            <!--</md-list-item>-->
-
-            <!--<md-list-item ng-show="!isLoggedIn()">-->
-                <!--<a class="flex"  href="/signup" layout="row" layout-align="start center">-->
-                    <!--<div class="inset">-->
-                        <!--<ng-md-icon icon="assignment_ind"></ng-md-icon>-->
-                    <!--</div>-->
-                    <!--<md-item-content  layout="row" layout-align="start center" class="flex">-->
-                        <!--<div class="inset">Sign up</div>-->
-                    <!--</md-item-content>-->
-                <!--</a>-->
-            <!--</md-list-item>-->
-
 
             <md-divider></md-divider>
             <md-subheader class="md-no-sticky">Menu</md-subheader>
             <nav-menu></nav-menu>
-            <!--<md-list-item md-ink-ripple ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" >-->
-                <!--<a ng-href="{{item.link}}" class="flex">-->
-                    <!--<md-item-content  layout="row" layout-align="start center" >-->
-                        <!--<div class="inset">-->
-                            <!--<ng-md-icon icon="{{item.icon}}"></ng-md-icon>-->
-                        <!--</div>-->
-                        <!--<div class="inset">{{item.title}}-->
-                        <!--</div>-->
-                    <!--</md-item-content>-->
-                <!--</a>-->
-            <!--</md-list-item>-->
+
         </md-list>
     </div>
 </md-sidenav>
@@ -118,10 +64,8 @@
 
 <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" ng-controller="LeftBarController">
 
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-
+    <md-toolbar layout="row"  class="md-whiteframe-z1">
             <md-icon hide-gt-sm  class="menu" ng-click="toggleNavBar()" md-svg-icon="img/icons/ic_menu_24px.svg"></md-icon>
-
         <h1>Angular Material</h1>
     </md-toolbar>
 
