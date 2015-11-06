@@ -1,25 +1,22 @@
 <h1>This is personDetailed.html!</h1>
 
-<h2>id: {{ personDetailed.id }}</h2>
-<h2>{{ personDetailed.item }}</h2>
-<md-content flex layout-padding ng-cloak>
-
+<md-content  layout="column" layout-padding ng-cloak>
 
         <!--<md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>-->
         <md-input-container flex>
             <label>First name</label>
-            <input ng-model=" personDetailed.item.name.firstName">
+            <input ng-model=" personDetailed.person.name.firstName">
         </md-input-container>
         <md-input-container flex>
             <label>Middle Name</label>
-            <input ng-model=" personDetailed.item.name.middleName" >
+            <input ng-model=" personDetailed.person.name.middleName" >
         </md-input-container>
         <md-input-container flex>
             <label>Last Name</label>
-            <input ng-model=" personDetailed.item.name.lastName" >
+            <input ng-model=" personDetailed.person.name.lastName" >
         </md-input-container>
 
-
     <md-datepicker ng-model="personDetailed.birtday" md-placeholder="Enter date"></md-datepicker>
+    <md-button ng-click="personDetailed.updatePerson()" >SAVE</md-button>
 </md-content>
 

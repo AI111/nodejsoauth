@@ -1,9 +1,9 @@
 'use strict';
 
-var mainModule = angular.module('app.chatPage', []);
+var mainModule = angular.module('app.chat', []);
 
 mainModule.factory('socket', ['$rootScope', function ($rootScope) {
-    var socket = io.connect();
+    var socket = io.connect('http://localhost:8080/chat');
 
     return {
         on: function (eventName, callback) {
@@ -34,13 +34,14 @@ mainModule.factory('socket', ['$rootScope', function ($rootScope) {
     };
 }]);
 
-mainModule.controller('ChatPageController', ['socket', ChatPageController]);
+mainModule.controller('ChatController', ['socket', ChatController]);
 
-function ChatPageController(socket) {
+function ChatController(socket) {
 
     var main = this;
-
+    main.msg="MSG";
     main.sendWithSocket = function(msg){
+        console.log(msg);
         socket.emit("send", msg);
     }
 

@@ -10,11 +10,14 @@
 // 'ngResource' - модуль для работы с 'RESTful' источниками
 var appModule = angular.module('app', [
     'app.main',
+    'app.chat',
     'app.peopleList',
     'app.personDetailed',
     'app.loginUser',
     'app.signupUser',
     'app.authService',
+
+
     'ngNewRouter',
     'ngResource',
     'ngMaterial',
@@ -29,52 +32,14 @@ appModule.controller('AppController', ['$router', AppController]);
 function AppController($router) {
     // конфигурация маршрутов
     $router.config([
-        { path: '/', component: 'main'},
-        { path: '/people', component: 'peopleList'},
-        { path: '/people/:id', component: 'personDetailed'},
-        { path: '/login', component: 'loginUser' },
-        { path: '/signup', component: 'signupUser'}
+        { path: '/',            component: 'main'},
+        { path: '/people',      component: 'peopleList'},
+        { path: '/people/:id',  component: 'personDetailed'},
+        { path: '/login',       component: 'loginUser' },
+        { path: '/signup',      component: 'signupUser'},
+        { path : '/chat',       component: 'chat'}
     ]);
 }
-
-
-//appModule.controller('LeftBarController', function ($scope, $mdSidenav, $log,$location,Auth) {
-//    $scope.isCollapsed = true;
-//    $scope.isLoggedIn = Auth.isLoggedIn;
-//    $scope.isAdmin = Auth.isAdmin;
-//    $scope.getCurrentUser = Auth.getCurrentUser;
-//
-//    $scope.logout = function() {
-//        Auth.logout();
-//        $location.path('/login');
-//    };
-//
-//    $scope.isActive = function(route) {
-//        return route === $location.path();
-//    };
-//    $scope.toggleNavBar = function(){
-//        $mdSidenav('left').toggle();
-//    }
-//    $scope.menu=[
-//        {
-//            link : '/',
-//            title: 'Main',
-//            icon: 'home'
-//        },
-//        {
-//            link : '/people',
-//            title: 'Persons',
-//            icon: 'group'
-//        }
-//
-//    ];
-//    $scope.close = function () {
-//        $mdSidenav('left').close()
-//            .then(function () {
-//                $log.debug("close LEFT is done");
-//            });
-//    };
-//});
 
 appModule.directive('mongooseError', function () {
     return {
@@ -88,12 +53,3 @@ appModule.directive('mongooseError', function () {
     };
 });
 
-
-// контроллер для панели навигации 
-//appModule.controller('NavController', ['$scope', '$location', NavController]);
-//function NavController($scope, $location)
-//{
-//    $scope.isActive = function (viewLocation) {
-//        return viewLocation === $location.path();
-//    };
-//}

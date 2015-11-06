@@ -25,7 +25,7 @@ User.find({}).remove(function() {
 Person.find({}).remove(function() {
     Person.create(
         {
-            _id:0,
+            //_id:0,
             name: {
                 firstName : "Sasha",
                 lastName : "Andreev",
@@ -38,7 +38,7 @@ Person.find({}).remove(function() {
             }
         },
         {
-            _id:1,
+            //_id:1,
             name: {
                 firstName : "ZfirstName",
                 lastName : "lastName",
@@ -51,7 +51,7 @@ Person.find({}).remove(function() {
             }
         },
         {
-            _id:2,
+            //_id:2,
             name: {
                 firstName : "AfirstName",
                 lastName : "lastName",
@@ -64,7 +64,7 @@ Person.find({}).remove(function() {
             }
         },
         {
-            _id:3,
+            //_id:7,
             name: {
                 firstName : "sdfsdf",
                 lastName : "lastName",
@@ -77,7 +77,7 @@ Person.find({}).remove(function() {
             }
         },
         {
-            _id:4,
+            //_id:4,
             name: {
                 firstName : "sdfsf",
                 lastName : "lastName",

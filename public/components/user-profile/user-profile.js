@@ -23,12 +23,17 @@ appModule.controller('LeftBarController', function ($scope, $mdSidenav, $log,$lo
         {
             link : '/',
             title: 'Main',
-            icon: 'home'
+            icon: '/img/icons/ic_home_24px.svg'
         },
         {
             link : '/people',
             title: 'Persons',
-            icon: 'group'
+            icon: '/img/icons/ic_group_24px.svg'
+        },
+        {
+            link : '/chat',
+            title: 'Chat',
+            icon: '/img/icons/ic_chat_24px.svg'
         }
 
     ];

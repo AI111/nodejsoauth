@@ -28,12 +28,11 @@
     "serve-favicon":"latest",
     "mongoose" : "latest",
     "connect-mongo":"latest",
-    "body-parser" : "latest",
     "ejs" : "latest",
     "cookie-parser": "latest",
     "lodash":"latest",
     "body-parser":"latest",
-    "lodash":"latest",
+    "socket.io":"latest",
 
     "morgan": "latest",
     "jsonwebtoken": "latest",

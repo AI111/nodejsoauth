@@ -26,8 +26,40 @@ body {
   transform: translateZ(0);
   -webkit-transform: scale(0.70);
   -moz-transform:scale(0.70);
-
 }
 .user-avatar-background{
   background-color: #FEFEFE;
 }
+.active{
+  background-color:#BBDEFB ;
+}
+.activeicon{
+  color:#FF5722;
+}
+.dark-primary-color    { background: #1976D2; }
+.default-primary-color { background: #2196F3; }
+.light-primary-color   { background: #BBDEFB; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #FF5722; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #727272; }
+.divider-color         { border-color: #B6B6B6; }
+
+
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+  color: white;
+}
+
+
+
+/*a:-webkit-any-link:active {*/
+/*color: -webkit-activelink;*/
+/*}*/
+/*a:-webkit-any-link {*/
+/*color: -webkit-link;*/
+/*text-decoration: underline;*/
+/*cursor: auto;*/
+/*}*/
+/*:focus {*/
+/*outline: -webkit-focus-ring-color auto 5px;*/
+/*}*/

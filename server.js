@@ -14,7 +14,9 @@ var flash    = require('connect-flash');
 var favicon = require('serve-favicon');
 var app = express();
 var methodOverride = require('method-override');
+var server = require('http').createServer(app);
 var mongoStore = require('connect-mongo')(session);
+
 mongoose.connect(config.mongo.connection_string);
 mongoose.connection.on('error', function(err) {
         console.error('MongoDB connection error: ' + err);
@@ -26,12 +28,9 @@ app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-
 app.use(methodOverride());
 app.use(cookieParser());
 app.use(passport.initialize());
-
-
 // Persist sessions with mongoStore
 // We need to enable sessions for passport twitter because its an oauth 1.0 strategy
 app.use(session({
@@ -43,17 +42,12 @@ app.use(session({
         db: 'nodejsoauth'
     })
 }));
-
-
-
 app.use(flash());
-
-app.listen(config.port,config.ip, function(err) {
+server.listen(config.port,config.ip, function(err) {
     if (err) throw err;
     console.log("Server started")
     console.log('http://'+(config.ip||'localhost')+':'+config.port);
 });
-
 
 app.use('/api/people',myApi);
 app.use('/api/users', require('./server/routes/user'));
@@ -63,3 +57,6 @@ app.use('/api/users', require('./server/routes/user'));
 app.use('/auth', require('./server/auth'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+var socketio = require('socket.io')(server);
+require('./server/socket')(socketio);

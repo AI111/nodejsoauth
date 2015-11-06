@@ -41,7 +41,8 @@ function MainController(socket) {
 	var main = this;
   
 	main.sendWithSocket = function(msg){
-		socket.emit("send", msg);       
+        console.log(msg)
+		socket.emit('send', msg);
 	}
   
   socket.on("message", function(data) {
