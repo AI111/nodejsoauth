@@ -12,6 +12,7 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  imgUrl:{type:String,default:'img/avatars/1446654431_user.png'},
   hashedPassword: String,
   provider: String,
   salt: String,

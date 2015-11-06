@@ -2,10 +2,10 @@
 
 <h2>id: {{ personDetailed.id }}</h2>
 <h2>{{ personDetailed.item }}</h2>
-<div layout="column" ng-cloak>
+<md-content flex layout-padding ng-cloak>
 
-    <div layout layout-sm="column">
-        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+
+        <!--<md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>-->
         <md-input-container flex>
             <label>First name</label>
             <input ng-model=" personDetailed.item.name.firstName">
@@ -18,8 +18,8 @@
             <label>Last Name</label>
             <input ng-model=" personDetailed.item.name.lastName" >
         </md-input-container>
-    </div>
+
 
     <md-datepicker ng-model="personDetailed.birtday" md-placeholder="Enter date"></md-datepicker>
-</div>
+</md-content>
 
