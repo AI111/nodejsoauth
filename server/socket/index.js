@@ -13,8 +13,9 @@ module.exports = function (socketio) {
       console.info('[%s] DISCONNECTED', socket.address);
     });
 
-    socketio.on('send',function(data){
-      console.info('[%s] send : %s', socket.address,data);
+    socket.on('send',function(data){
+      console.info('[%s] send ',data);
+      socket.broadcast.emit('broadcast msg',data);
     });
     console.info('[%s] CONNECTED', socket.address);
   });

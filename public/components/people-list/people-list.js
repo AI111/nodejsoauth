@@ -83,13 +83,14 @@ function DialogController($scope, $mdDialog,peopleService,$mdToast) {
             console.log($scope.person)
             peopleService.create($scope.person)
                 .then(function(res){
+                    console.log(peopleList.list)
                         $mdToast.show(
-                            $mdToast.simple().content('Deleted')
+                            $mdToast.simple().content('Aded')
                         );
                     },
                     function(err){
                         $mdToast.show(
-                            $mdToast.simple().content('Deleted')
+                            $mdToast.simple().content('Errp')
                         );
                     });
         }

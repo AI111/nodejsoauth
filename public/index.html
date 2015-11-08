@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="components/login-user/login.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
@@ -58,18 +57,16 @@
 </md-sidenav>
 
 
-<div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" ng-controller="LeftBarController">
+<div  layout="column" layout-fill role="main" class="md-whiteframe-z2 " ng-controller="LeftBarController">
 
-    <md-toolbar layout="row" class="md-whiteframe-z1">
 
-            <md-icon hide-gt-sm  class="menu" ng-click="toggleNavBar()" md-svg-icon="img/icons/ic_menu_24px.svg"></md-icon>
+    <md-toolbar flex="initial" layout="row" layout-align="start center" class="md-whiteframe-z1">
 
-        <h1>Angular Material</h1>
+        <md-icon hide-gt-sm flex="10" ng-click="toggleNavBar()" md-svg-icon="img/icons/ic_menu_24px.svg"></md-icon>
+
+        <h2 flex >Angular Material</h2>
     </md-toolbar>
-
-    <md-content flex id="content">
-        <div ng-viewport></div>
-    </md-content>
+    <div flex  layout="column" ng-viewport></div>
 
 </div>
 
@@ -83,6 +80,7 @@
 <script type="text/javascript" src="./bower_components/angular-material-icons/angular-material-icons.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="./bower_components/socket.io-client/socket.io.js"></script>
 
 
 <script type="text/javascript" src="./app/app.js"></script>
@@ -93,6 +91,8 @@
 <script type="text/javascript" src="./components/signup-user/signup-user.js"></script>
 <script type="text/javascript" src="./components/auth/auth-service.js"></script>
 <script type="text/javascript" src="./components/user-profile/user-profile.js"></script>
+<script type="text/javascript" src="./components/chat/chat.js"></script>
+
 
 </body>
 </html>

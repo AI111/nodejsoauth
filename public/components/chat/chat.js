@@ -1,9 +1,8 @@
-'use strict';
 
 var mainModule = angular.module('app.chat', []);
 
 mainModule.factory('socket', ['$rootScope', function ($rootScope) {
-    var socket = io.connect('http://localhost:8080/chat');
+    var socket = io.connect();
 
     return {
         on: function (eventName, callback) {
@@ -34,27 +33,32 @@ mainModule.factory('socket', ['$rootScope', function ($rootScope) {
     };
 }]);
 
-mainModule.controller('ChatController', ['socket', ChatController]);
+mainModule.controller('ChatController', ['socket', 'Auth', ChatController]);
 
-function ChatController(socket) {
+function ChatController(socket,Auth) {
+    var persons = [];
 
-    var main = this;
-    main.msg="MSG";
-    main.sendWithSocket = function(msg){
+    var chat = this;
+    chat.isLoggedIn = Auth.isLoggedIn;
+    chat.getCurrentUser = Auth.getCurrentUser;
+    chat.msgList =[];
+    chat.msg="MSG";
+    chat.sendWithSocket = function(msg){
         console.log(msg);
-        socket.emit("send", msg);
+        socket.emit("send", {user:{name:chat.getCurrentUser().name,imgUrl:chat.getCurrentUser().imgUrl},msg:msg});
+        chat.msgList.push({msg:msg})
+
     }
 
-    socket.on("message", function(data) {
-        if (!main.textField)
-            main.textField = "";
-        main.textField += "client: " + data.msg + "\n";
+    socket.on("broadcast msg", function(data) {
+        console.log(JSON.stringify(data))
+        chat.msgList.push({user:data.user,msg:data.msg});
     });
 
     socket.on("init", function(data) {
-        if (!main.textField)
-            main.textField = "";
-        main.textField += "User connected\n";
+        if (!chat.textField)
+            chat.textField = "";
+        chat.textField += "User connected\n";
     });
 
 }

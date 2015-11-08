@@ -36,6 +36,30 @@ body {
 .activeicon{
   color:#FF5722;
 }
+.list-icon{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+.avatar-box{
+  margin-bottom: 8px;
+  margin-right: 8px;
+  height: 30px;
+  width: 30px;
+}
+.msg-user-name{
+  color: #212121;
+  font-size: 18px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.msg-text{
+  word-wrap: break-word;
+  color: #727272;
+  font-size: 16px;
+}
+.red {background: #ac2925}
+.green {background: #a6e22e}
 .dark-primary-color    { background: #1976D2; }
 .default-primary-color { background: #2196F3; }
 .light-primary-color   { background: #BBDEFB; }
@@ -50,6 +74,84 @@ body {
   color: white;
 }
 
+#msgform {
+  position: fixed;
+  bottom: 0;
+  background: #74C094;
+  height: 50px;
+}
+
+#msgform .text {
+  transition: border 0.3s;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  height: 40px;
+  position: fixed;
+  bottom: 5px;
+
+}
+
+#msgform i{
+  position: fixed;
+  bottom: 9px;
+  right: 9px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#messages {
+  overflow-y: auto;
+}
+
+#messages .message {
+  display: block;
+  position: relative;
+  background-color: #FFF;
+  padding: 10px;
+  z-index: 20;
+  -webkit-animation-name: "fadeInRight";
+  -moz-animation-name: "fadeInRight";
+  -ms-animation-name: "fadeInRight";
+  -o-animation-name: "fadeInRight";
+  animation-name: "fadeInRight";
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  -ms-animation-duration: 0.4s;
+  -o-animation-duration: 0.4s;
+  animation-duration: 0.4s; }
+
+#messages img {
+  position: absolute;
+  display: block;}
+#messages .info {
+  margin-left: 65px; }
+#messages strong {
+  font-weight: bold;
+  color: #4e4e4e;
+  font-size: 14px; }
+#messages p {
+  margin-bottom: 10px;
+  font-size: 14px; }
+#messages .date {
+  font-size: 12px;
+  color: #ababab;
+  position: absolute;
+  top: 10px;
+  right: 10px; }
+@media screen and (max-width: 290px) {
+  #messages .date{
+    display:none;
+    visibility:hidden;
+  }
+}
+#messages .sep {
+  height: 20px; }
+
+#msgtpl {
+  display: none; }
 
 
 /*a:-webkit-any-link:active {*/
