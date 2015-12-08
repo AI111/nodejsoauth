@@ -1,0 +1,31 @@
+<md-content>
+    <md-list>
+
+        <md-list-item  ng-repeat="model in roomsList.list" ng-click="roomsList.go($index)">
+            <div layout="column" flex>
+                <div layout="row"  layout-align="space-between center">
+                    <h2 class="md-title">{{model.name}}</h2><p>created by {{model.creator.name}}  {{model.created | date:'mediumDate'}}</p>
+                </div>
+
+                <div layout="row" flex>
+                    <!--<md-chips ng-repeat="user in model.users" readonly="true">-->
+                    <md-chips  ng-model="model.users" readonly="true">
+                        <md-chip-template>
+                            <span class="md-caption">
+                                 {{$chip.name}}
+                            </span>
+                        </md-chip-template>
+                    </md-chips>
+                </div>
+            </div>
+
+
+            <!--<md-icon md-svg-icon="img/icons/ic_delete_24px.svg" class="md-secondary" aria-label="Open Chat"  ng-click="roomsList.deletePerson($index)"></md-icon>-->
+
+            <md-divider  ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>
+<md-button class="md-fab md-fab-bottom-right" aria-label="Create person">
+    <md-icon md-svg-src="img/icons/ic_person_add_24px.svg"></md-icon>
+</md-button>

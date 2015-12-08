@@ -25,7 +25,7 @@ mongoose.connection.on('error', function(err) {
 );
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/img/favicon.ico'));
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride());
@@ -49,12 +49,12 @@ server.listen(config.port,config.ip, function(err) {
     console.log('http://'+(config.ip||'localhost')+':'+config.port);
 });
 
-app.use('/api/people',myApi);
-app.use('/api/users', require('./server/routes/user'));
-//require('./server/models/test.data')
-//require('./routes/index')(app,passport);
-//require('./routes/people')(app);
-app.use('/auth', require('./server/auth'));
+
+
+require('./routes')(app);
+//require('./server/api/initial.data');
+
+//app.use('/auth', require('./server/auth'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 

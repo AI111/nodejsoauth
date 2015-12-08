@@ -1,8 +1,8 @@
 'use strict';
 
-var User = require('../models/user.model');
+var User = require('./user.model');
 var passport = require('passport');
-var config = require('../config');
+var config = require('../../config/index');
 var jwt = require('jsonwebtoken');
 
 var validationError = function(res, err) {
@@ -91,6 +91,16 @@ exports.me = function(req, res, next) {
     if (!user) return res.status(401).send('Unauthorized');
     res.json(user);
   });
+};
+exports.getContacts = function(req, res, next) {
+  var userId = req.user._id;
+  User.findOne({
+    _id: userId
+  },'contacts').populate('contacts','name email imgUrl').exec( function(err, user) { // don't ever give out the password or salt
+    if (err) return next(err);
+    if (!user) return res.status(401).send('Unauthorized');
+    res.json(user.contacts);
+  })
 };
 
 /**

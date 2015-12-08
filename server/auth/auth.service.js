@@ -6,7 +6,7 @@ var config = require('../config');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var compose = require('composable-middleware');
-var User = require('../models/user.model');
+var User = require('../api/user/user.model.js');
 var validateJwt = expressJwt({ secret: config.secrets.session });
 
 /**
@@ -17,9 +17,11 @@ function isAuthenticated() {
   return compose()
     // Validate jwt
     .use(function(req, res, next) {
-      // allow access_token to be passed through query parameter as well
+        // allow access_token to be passed through query parameter as well
       if(req.query && req.query.hasOwnProperty('access_token')) {
         req.headers.authorization = 'Bearer ' + req.query.access_token;
+      }else if(!req.headers.authorization){
+          return res.status(401).send('Unauthorized');
       }
         validateJwt(req, res, next);
     })
@@ -34,6 +36,33 @@ function isAuthenticated() {
       });
     });
 }
+
+//function isAuthenticated() {
+//    return compose()
+//    // Validate jwt
+//        .use(function(req, res, next) {
+//            // allow access_token to be passed through query parameter as well
+//            if (req.query && req.query.hasOwnProperty('access_token')) {
+//                req.headers.authorization = 'Bearer ' + req.query.access_token;
+//            }
+//            validateJwt(req, res, next);
+//        })
+//        // Attach user to request
+//        .use(function(req, res, next) {
+//            User.findByIdAsync(req.user._id)
+//                .then(function(user) {
+//                    if (!user) {
+//                        return res.status(401).end();
+//                    }
+//                    req.user = user;
+//                    next();
+//                })
+//                .catch(function(err) {
+//                    return next(err);
+//                });
+//        });
+//}
+
 
 /**
  * Checks if the user role meets the minimum requirements of the route

@@ -5,7 +5,7 @@
 'use strict';
 
 var _ = require('lodash');
-var Person = require('./../models/person');
+var Person = require('./person');
 
 // Get list of things
 exports.getAll = function(req, res) {

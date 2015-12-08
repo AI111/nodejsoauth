@@ -33,6 +33,7 @@
     "lodash":"latest",
     "body-parser":"latest",
     "socket.io":"latest",
+    "socketio-jwt": "latest",
 
     "morgan": "latest",
     "jsonwebtoken": "latest",

@@ -17,6 +17,8 @@ var appModule = angular.module('app', [
     'app.signupUser',
     'app.authService',
     'app.userProfile',
+    'app.roomsList',
+
 
     'ngNewRouter',
     'ngResource',
@@ -78,11 +80,10 @@ function AppController($router) {
         { path: '/people/:id',  component: 'personDetailed'},
         { path: '/login',       component: 'loginUser' },
         { path: '/signup',      component: 'signupUser'},
-        { path : '/chat',       component: 'chat'}
+        { path: '/rooms',       component: 'roomsList'},
+        { path: '/chat/:id',    component: 'chat'}
     ]);
-
 }
-
 
 appModule.directive('mongooseError', function () {
     return {

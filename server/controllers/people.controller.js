@@ -1,7 +1,7 @@
 /**
  * Created by sasha on 04.10.15.
  */
-var Person = require('../models/person');
+var Person = require('../api/person/person');
 exports.showPeople = function(req, res) {
     Person.find(function(err, people) {
         if (err) res.render('people');

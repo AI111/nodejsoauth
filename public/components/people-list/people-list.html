@@ -6,10 +6,14 @@
 <md-content>
     <md-list>
 
-        <md-list-item  ng-repeat="model in peopleList.list"  ng-click="peopleList.go($index)">
-
-                    <p>{{model.name.firstName}} {{model.name.lastName}}</p>
-            <md-icon md-svg-icon="img/icons/ic_delete_24px.svg" class="md-secondary" aria-label="Open Chat"  ng-click="peopleList.deletePerson($index)"></md-icon>
+        <md-list-item class="md-3-line" ng-repeat="model in peopleList.list">
+            <img ng-src="{{model.imgUrl}}" class="md-avatar" alt="{{model.name}}" />
+            <div class="md-list-item-text" layout="column">
+                <h3>{{ model.name }}</h3>
+                <h4>{{ model.email }}</h4>
+            </div>
+                    <!--<p>{{model.name}} </p>-->
+            <!--<md-icon md-svg-icon="img/icons/ic_delete_24px.svg" class="md-secondary" aria-label="Open Chat"  ng-click="peopleList.deletePerson($index)"></md-icon>-->
 
             <md-divider  ng-if="!$last"></md-divider>
         </md-list-item>

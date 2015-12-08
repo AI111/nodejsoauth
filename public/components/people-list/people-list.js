@@ -5,7 +5,7 @@ var peopleModule = angular.module('app.peopleList', ['ngMaterial']);
 peopleModule.factory('peopleService', ['$http', function($http) {
     return {
         get : function() {
-            return $http.get('/api/people');
+            return $http.get('/api/users/contacts');
         },
         delete : function(id,config) {
             return $http.delete('/api/people/' + id,config);
@@ -58,7 +58,7 @@ function PeopleListController(peopleService,$location,$mdDialog,$mdToast) {
     }
     peopleService.get().then(function(result) {
         peopleList.list = result.data;
-
+        console.log(peopleList.list);
     });
 }
 function DialogController($scope, $mdDialog,peopleService,$mdToast) {

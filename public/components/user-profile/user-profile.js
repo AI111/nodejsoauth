@@ -27,11 +27,11 @@ appModule.controller('LeftBarController', function ($scope, $mdSidenav, $log,$lo
         },
         {
             link : '/people',
-            title: 'Persons',
+            title: 'Contacts',
             icon: '/img/icons/ic_group_24px.svg'
         },
         {
-            link : '/chat',
+            link : '/rooms',
             title: 'Chat',
             icon: '/img/icons/ic_chat_24px.svg'
         }

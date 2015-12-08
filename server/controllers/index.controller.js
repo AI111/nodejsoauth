@@ -3,7 +3,7 @@
  */
 var path = require('path');
 
-var Person = require('../models/person');
+var Person = require('../api/person/person');
 exports.index = function(req, res) {
     res.render('index', {title : "Проверка"});
 };

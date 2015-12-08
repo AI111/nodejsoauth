@@ -3,7 +3,7 @@
  */
 'use strict'
 var express = require('express');
-var controller = require('../controllers/person.controller');
+var controller = require('../api/person/person.controller.js');
 var router = express.Router();
 
 router.get('/',controller.getAll);
