@@ -52,7 +52,7 @@ server.listen(config.port,config.ip, function(err) {
 
 
 require('./routes')(app);
-require('./server/api/initial.data');
+//require('./server/api/initial.data');
 
 //app.use('/auth', require('./server/auth'));
 app.set('view engine', 'ejs');

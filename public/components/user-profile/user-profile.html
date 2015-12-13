@@ -1,9 +1,9 @@
 <div ng-controller="LeftBarController" ng-cloak>
     <md-toolbar class="" >
         <div layout="column" ng-show="isLoggedIn()" >
-            <img class="lg-avatar user-avatar-background" ng-src="{{getCurrentUser().imgUrl}}"/>
-            <h4  class="navbar-text">Name {{ getCurrentUser().name }}</h4>
-            <h5  class="navbar-text">email: {{ getCurrentUser().email}}</h5>
+            <img name="profile-img" class="lg-avatar user-avatar-background" ng-src="{{getCurrentUser().imgUrl}}"/>
+            <h4 name="profile-name" class="navbar-text">Name {{ getCurrentUser().name }}</h4>
+            <h5 name="profile-email" class="navbar-text">email: {{ getCurrentUser().email}}</h5>
 
         </div>
     </md-toolbar>
