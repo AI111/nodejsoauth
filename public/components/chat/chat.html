@@ -1,9 +1,18 @@
-<div ng-if="chat.isCreator">
+<div ng-if="chat.isCreator" ng-cloak layout="column" ng-cloak="" class="chipsdemoContactChips">
     <md-contact-chips
-            ng-model="chat.users"
+            ng-model="chat.contacts"
+            md-contacts="chat.querySearch($query)"
             md-contact-name="name"
             md-contact-image="imgUrl"
-            md-contact-email="email">
+            md-contact-email="email"
+            md-require-match="true"
+            md-on-append ="console.log('test1');"
+            md-on-remove ="console.log('test2');"
+            md-on-select ="console.log('test3');"
+            md-highlight-flags="i"
+            filter-selected="chat.filterSelected"
+            placeholder="Users">
+
     </md-contact-chips>
 </div>
 <ol class="discussion" flex>

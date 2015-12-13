@@ -2,7 +2,7 @@
  * Created by sasha on 15.10.15.
  */
 'use strict';
-var port = 8080;
+var port = 9000;
 var domain='';
 if(process.env.OPENSHIFT_APP_DNS){
     domain='https://'+process.env.OPENSHIFT_APP_DNS;
