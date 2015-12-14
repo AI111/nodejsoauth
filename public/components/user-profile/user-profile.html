@@ -1,6 +1,6 @@
 <div ng-controller="LeftBarController" ng-cloak>
     <md-toolbar class="" >
-        <div layout="column" ng-show="isLoggedIn()" >
+        <div id="profile" layout="column" ng-show="isLoggedIn()" >
             <img name="profile-img" class="lg-avatar user-avatar-background" ng-src="{{getCurrentUser().imgUrl}}"/>
             <h4 name="profile-name" class="navbar-text">Name {{ getCurrentUser().name }}</h4>
             <h5 name="profile-email" class="navbar-text">email: {{ getCurrentUser().email}}</h5>
@@ -8,8 +8,8 @@
         </div>
     </md-toolbar>
     <md-list>
-        <md-list-item md-ink-ripple ng-show="!isLoggedIn()">
-            <a class="flex"  href="/login" layout="row" layout-align="start center">
+        <md-list-item  md-ink-ripple ng-show="!isLoggedIn()">
+            <a name="login" class="flex"  href="/login" layout="row" layout-align="start center">
                 <div class="inset">
                     <md-icon md-svg-icon="/img/icons/ic_login_24px.svg"></md-icon>
                 </div>
@@ -19,8 +19,8 @@
             </a>
         </md-list-item>
 
-        <md-list-item md-ink-ripple ng-show="isLoggedIn()" >
-            <a class="flex"  href="" ng-click="logout()" layout="row" layout-align="start center">
+        <md-list-item  md-ink-ripple ng-show="isLoggedIn()" >
+            <a name="logout" class="flex"  href="" ng-click="logout()" layout="row" layout-align="start center">
                 <div class="inset">
                     <md-icon md-svg-icon="/img/icons/ic_logout_24px.svg"></md-icon>
                 </div>
