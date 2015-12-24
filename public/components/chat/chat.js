@@ -4,7 +4,7 @@ var chatModule = angular.module('app.chat', []);
 chatModule.factory('socket', ['$rootScope','Auth', function ($rootScope,Auth) {
     var socket = io.connect('http://localhost:8080', {
         // Send auth token on connection, you will need to DI the Auth service above
-        query: 'token=' + Auth.getToken()
+        //query: 'token=' + Auth.getToken()
         //path: '/socket.io-client'
     });
 
@@ -67,7 +67,8 @@ function ChatController(socket,Auth,$routeParams,chatService,$timeout, $q) {
     id = $routeParams.id;
     chat.isLoggedIn = Auth.isLoggedIn;
     chat.getCurrentUser = Auth.getCurrentUser;
-
+    id = $routeParams.id;
+    thisUser=chat.getCurrentUser();
     chat.querySearch = querySearch;
     chat.contacts ;
     chat.allContacts;
@@ -78,12 +79,9 @@ function ChatController(socket,Auth,$routeParams,chatService,$timeout, $q) {
     chat.usersMap=[]
     chat.msg="MSG";
     chat.isCreator=false;
-    chat.onAdd=function(ev){
-        console.log("add");
-    }
-    chat.onRemove=function(ev){
-        console.log("remove");
-    }
+
+    socket.emit("init",{user:thisUser._id, room:id});
+
     chatService.getRoom(id).then(function(res){
        chat.isCreator=res.data.creator==chat.getCurrentUser()._id;
         if(chat.isCreator){
@@ -100,39 +98,43 @@ function ChatController(socket,Auth,$routeParams,chatService,$timeout, $q) {
         chat.contacts.forEach(function(element, index, array){
             chat.usersMap[element._id]=element;
         });
-        //console.log(chat.users);
+        console.log(chat.usersMap);
 
     });
     chatService.getMsg(id).then(function(res) {
-        //console.log("MESSAGAS");
+        console.log("MESSAGAS");
         console.log(res.data);
         //console.log(chat.getCurrentUser());
         chat.msgList=res.data;
     });
 
+
+
     chat.sendWithSocket = function(msg){
         //console.log(msg);
-        obj={sender:chat.getCurrentUser()._id,text:msg,sendTime:new Date()};
-        socket.emit("send", {user:{name:chat.getCurrentUser().name,imgUrl:chat.getCurrentUser().imgUrl},text:msg});
-        chat.msgList.push(obj);
+        if(msg.length==0)return;
+        obj={sender:chat.getCurrentUser()._id,text:msg,imgUrl:chat.getCurrentUser().imgUrl,sendTime:new Date()};
+        socket.emit("send", obj);
+        addMsg(obj);
 
     }
 
     socket.on("broadcast msg", function(data) {
         console.log(JSON.stringify(data))
-        chat.msgList.push({user:data.user,msg:data.msg});
+        addMsg(data);
     });
 
-    socket.on("init", function(data) {
-        if (!chat.textField)
-            chat.textField = "";
-        chat.textField += "User connected\n";
-    });
+    function addMsg(msg){
+        console.log(msg)
+        chat.msgList.push(msg);
+        $timeout(function() {
+            var scroller = document.getElementById("autoscroll");
+            scroller.scrollTop = scroller.scrollHeight;
+        }, 0, false);
+    }
 
 
-    /**
-     * Create filter function for a query string
-     */
+
 
     function querySearch (query) {
         var results = query ?

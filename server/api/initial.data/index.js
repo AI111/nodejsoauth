@@ -57,17 +57,46 @@ User.find({}).remove(function() {
         }
     );
 });
+var room1=Room({
+    name:"test room1",
+    creator:testUser1._id,
+    users:[testUser1._id,testUser2._id]
+});
+var room2=Room({
+    name:"test room2",
+    creator:testUser1._id,
+    users:[testUser1._id,testUser2._id]
+});
+var room3=Room({
+    name:"test room3",
+    creator:testUser2._id,
+    users:[testUser1._id,testUser2._id]
+});
+
+Room.find({}).remove(function(){
+    Room.create( room1,room2,room3,
+    {
+        name:"test room4",
+        creator:testUser1._id,
+        users:[testUser2._id],
+    }, function() {
+        console.log('finished populating rooms');
+    });
+});
 var testMessaage1 = Message({
     text:" hello",
-    sender:testUser1._id
+    sender:testUser1._id,
+    room:room2._id
 })
 var testMessaage2 = Message({
     text:" world",
-    sender:testUser2._id
+    sender:testUser2._id,
+    room:room2._id
 });
 var testMessaage3 = Message({
     text:" Lorem ipsum dolor sit amet, rebum euripidis disputationi mei at, mel an harum legere vocent, mea eu graeco menandri. Affert exerci eam et. Ei eros omnis nam, ubique numquam est ex. Has id primis nemore insolens.",
-    sender:testUser2._id
+    sender:testUser2._id,
+    room:room1._id
 })
 Message.find({}).remove(function(){
     Message.create(
@@ -76,32 +105,6 @@ Message.find({}).remove(function(){
             console.log('finished populating message');
         }
     );
-});
-Room.find({}).remove(function(){
-    Room.create(
-        {
-            name:"test room1",
-            creator:testUser1._id,
-            users:[testUser1._id,testUser2._id],
-            messages:[testMessaage1._id,testMessaage2._id]
-        },        {
-            name:"test room2",
-            creator:testUser1._id,
-            users:[testUser1._id,testUser2._id],
-            messages:[testMessaage1._id,testMessaage2._id]
-        },        {
-            name:"test room3",
-            creator:testUser2._id,
-            users:[testUser1._id,testUser2._id],
-            messages:[testMessaage1._id,testMessaage2._id]
-        },{
-            name:"test room4",
-            creator:testUser1._id,
-            users:[testUser2._id],
-            messages:[testMessaage2._id]
-        }, function() {
-            console.log('finished populating rooms');
-        });
 });
 
 console.log("finish");

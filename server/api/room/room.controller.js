@@ -5,7 +5,7 @@
 'use strict';
 
 var _ = require('lodash');
-var Room = require('./room.model.js');
+var Room = require('./room.model');
 var Message = require('../message/message.model');
 
 // Get list of things
@@ -22,10 +22,14 @@ exports.getMy = function(req, res) {
     });
 };
 exports.getRoomAllMsg = function(req, res) {
-    Room.findById( req.params.id,'messages -_id').populate('messages').exec(function (err, mess) {
+    Message.find({room:req.params.id}).sort({sendTime:1}).exec(function(err,msg){
         if(err) { return handleError(res, err); }
-        return res.status(200).json(mess.messages);
+        return res.status(200).json(msg)
     });
+    //Room.findById( req.params.id,'messages -_id').populate('messages').exec(function (err, mess) {
+    //    if(err) { return handleError(res, err); }
+    //    return res.status(200).json(mess.messages);
+    //});
 };
 exports.getRoomAllUsers = function(req, res) {
     Room.findById( req.params.id,'users -_id').populate('users','name email imgUrl').exec(function (err, users) {
